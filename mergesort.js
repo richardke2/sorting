@@ -24,7 +24,6 @@ function merge(array, array2) {
     return mergedArray;
   }
   while (mergedArray.length < array.length + array2.length) {
-    console.log("mergedArray>>>",mergedArray);
     if(y >= array2.length){
       mergedArray.push(array[x]);
       x++;
@@ -35,10 +34,10 @@ function merge(array, array2) {
       y++;
       continue;
     }
-    if (array[x] < array2[y]) { //|| y >= array2.length
+    if (array[x] < array2[y]) {
       mergedArray.push(array[x]);
       x++;
-    } else if (array[x] > array2[y]) { //|| x >= array.length
+    } else if (array[x] > array2[y]) {
       mergedArray.push(array2[y]);
       y++;
     }
@@ -47,8 +46,7 @@ function merge(array, array2) {
 }
 
 function mergeSort(array) {
-  console.log(array)
-  if (array.length == 1) return //array;
+  if (array.length == 1) return array;
   let splittedArray = split(array);
   let splitOne = splittedArray[0];
   let splitTwo = splittedArray[1];

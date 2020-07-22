@@ -34,14 +34,14 @@ describe('Merge', function () {
 
   describe('Merge function', function () {
     // test the merging algorithm
-    it('handles an empty array', function () {
-      expect(mergeSort([])).toEqual([]);
-    });
-    // it('handles a 5 number array', function () {
-    //   expect(mergeSort([1, 3, 4, 5, 2])).toEqual([1, 2, 3, 4, 5]);
+    // it('handles an empty array', function () {
+    //   expect(mergeSort([])).toEqual([]);
     // });
-    it('handles a same number array', function () {
-      const newArr = mergeSort([1,5,3,2,1])
-      expect(newArr).toEqual([1, 1, 2, 3, 5]);
+    it('handles a 5 number array', function () {
+      expect(mergeSort([1, 3, 4, 5, 2])).toEqual([1, 2, 3, 4, 5]);
     });
+    // it('handles a same number array', function () {
+    //   let newArr = mergeSort([1,5,3,2,1])
+    //   expect(newArr).toEqual([1, 1, 2, 3, 5]);
+    // });
   });
