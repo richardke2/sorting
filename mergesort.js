@@ -1,16 +1,16 @@
 function split(wholeArray) {
   /* your code here to define the firstHalf and secondHalf arrays */
-  let length = wholeArray.length;
-  if (length === 0 || length === 1) {
+  let aLength = wholeArray.length;
+  if (aLength === 0 || aLength === 1) {
     return wholeArray;
   }
   let firstHalf = [];
   let secondHalf = [];
-  let half = Math.ceil(length / 2);
+  let half = Math.ceil(aLength / 2);
   for (let x = 0; x < half; x++) {
     firstHalf.push(wholeArray[x]);
   }
-  for (let y = half; y < length; y++) {
+  for (let y = half; y < aLength; y++) {
     secondHalf.push(wholeArray[y]);
   }
   return [firstHalf, secondHalf];
@@ -24,10 +24,21 @@ function merge(array, array2) {
     return mergedArray;
   }
   while (mergedArray.length < array.length + array2.length) {
-    if (array[x] < array2[y] || y >= array2.length) {
+    console.log("mergedArray>>>",mergedArray);
+    if(y >= array2.length){
       mergedArray.push(array[x]);
       x++;
-    } else if (array[x] > array2[y] || x >= array.length) {
+      continue;
+    }
+    else if(x >= array.length){
+      mergedArray.push(array2[y]);
+      y++;
+      continue;
+    }
+    if (array[x] < array2[y]) { //|| y >= array2.length
+      mergedArray.push(array[x]);
+      x++;
+    } else if (array[x] > array2[y]) { //|| x >= array.length
       mergedArray.push(array2[y]);
       y++;
     }
@@ -36,12 +47,10 @@ function merge(array, array2) {
 }
 
 function mergeSort(array) {
-  let length = array.length;
-  while (length > 1) {
-    let splitArray = split(array);
-  }
-  for (let x = 0; x < length; x++) {
-    let splitArray = split(array);
-    innerLength = splitArray[0].length;
-  }
+  console.log(array)
+  if (array.length == 1) return //array;
+  let splittedArray = split(array);
+  let splitOne = splittedArray[0];
+  let splitTwo = splittedArray[1];
+  return merge(mergeSort(splitOne),mergeSort(splitTwo))
 }
